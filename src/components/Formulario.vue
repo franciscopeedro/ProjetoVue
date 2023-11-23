@@ -26,6 +26,7 @@ import Temporizador from "./Temporizador.vue";
 
 export default defineComponent({
   name: "FormulárioTarefas",
+  emits:['aoSalvarTarefa'],
   components: {
     Temporizador,
   },
@@ -36,7 +37,10 @@ export default defineComponent({
   },
   methods: {
     finalizarTarefa(tempoDecorrido: number): void {
-      console.log("tempo da tarefa", tempoDecorrido, "tempo", this.descricao);
+      this.$emit('aoSalvarTarefa', {
+        duracaoEmSegundos: tempoDecorrido,
+        descricao: this.descricao
+      })
       this.descricao = "";
     },
   },
