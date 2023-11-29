@@ -24,7 +24,7 @@ export default defineComponent({
   components: {
   BarraLateral,
   FormularioTarefas,
-  TarefA
+  TarefA,
   },
   data (){
     return {
